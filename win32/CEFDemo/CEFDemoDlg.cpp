@@ -7,6 +7,9 @@
 #include "CEFDemoDlg.h"
 #include "afxdialogex.h"
 
+#include "DlgCHtmlView.h"
+#include "DlgCEF.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -63,6 +66,8 @@ BEGIN_MESSAGE_MAP(CCEFDemoDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON1, &CCEFDemoDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON2, &CCEFDemoDlg::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -151,3 +156,20 @@ HCURSOR CCEFDemoDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CCEFDemoDlg::OnBnClickedButton1()
+{
+	// TODO: Add your control notification handler code here
+	CDlgCHtmlView dlg;
+	dlg.DoModal();
+}
+
+
+void CCEFDemoDlg::OnBnClickedButton2()
+{
+	// TODO: Add your control notification handler code here
+	CDlgCEF dlg;
+
+	dlg.DoModal();
+}
