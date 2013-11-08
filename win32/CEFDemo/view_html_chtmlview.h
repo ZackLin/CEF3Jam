@@ -30,17 +30,10 @@ public:
 
 	//operations
 public:
-	void MonitorCookie(void);
-
 	//export to js
 	void Provider(LPCTSTR url);
 	BSTR GetLastUserEmail(void);
 	//end
-
-	BOOL	GotoFoxitCloudHome(void);
-	void	GotoFoxitCloudRegister(void);
-
-	void	GotoFoxitAccountProfile(void);
 
 	void	GotoProvider(CString csProvider);
 
@@ -98,10 +91,7 @@ protected:
 
 	CMyIEWnd m_myIEWnd;
 
-	// add by gm 20131031
 	CString		m_strUrl;
-	// add end 20131031
-
 public:
 #ifdef _DEBUG
 	virtual void AssertValid() const;
@@ -117,7 +107,6 @@ protected:
 public:
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
-	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 };
 
 
