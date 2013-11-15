@@ -112,6 +112,8 @@ int CefJamCEFHtmlView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
 	// TODO:  Add your specialized creation code here
+	
+
 	CRect rcClient;
 	this->GetClientRect(&rcClient);
 
@@ -119,20 +121,14 @@ int CefJamCEFHtmlView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CefRefPtr<CefJamClientHandler> client(new CefJamClientHandler());
 	m_pClientHandler = client;
 
-	CefSettings cSettings;
-	CefSettingsTraits::init( &cSettings);
-	cSettings.multi_threaded_message_loop = true;
-	CefRefPtr<CefApp> spApp;
-	CefMainArgs mainArgs;
-	CefInitialize( mainArgs,cSettings, spApp);
-
 	CefWindowInfo info;
 	info.SetAsChild( m_hWnd, rcClient);
 
 	CefBrowserSettings browserSettings;
 	
-	bool bCreate = CefBrowserHost::CreateBrowser( info, static_cast<CefRefPtr<CefClient> >(client), 
-		"http://www.qq.com", browserSettings);
+	//static_cast<CefRefPtr<CefClient> >(client)
+	bool bCreate = CefBrowserHost::CreateBrowser( info,static_cast<CefRefPtr<CefClient> >(client), 
+		"http://www.baidu.com", browserSettings);
 
 	return 0;
 }
@@ -144,7 +140,6 @@ void CefJamCEFHtmlView::PostNcDestroy()
 
 	//CView::PostNcDestroy();
 
-	CefShutdown();
 }
 
 

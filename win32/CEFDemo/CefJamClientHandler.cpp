@@ -24,3 +24,9 @@ CefJamClientHandler::~CefJamClientHandler(void)
 {
 
 }
+
+void CefJamClientHandler::OnAfterCreated(CefRefPtr<CefBrowser> browser) 
+{
+	REQUIRE_UI_THREAD();
+	m_Browser=browser;
+}

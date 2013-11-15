@@ -6,6 +6,11 @@
 #include "CEFDemo.h"
 #include "CEFDemoDlg.h"
 
+#include "../../cef/include/cef_base.h"
+#include "../../cef/include/cef_app.h"
+#include "../../cef/include/cef_client.h"
+#include "../../cef/include/cef_life_span_handler.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -67,6 +72,19 @@ BOOL CCEFDemoApp::InitInstance()
 	// such as the name of your company or organization
 	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
 
+	CefSettings cSettings;
+	CefSettingsTraits::init(&cSettings);
+
+	cSettings.multi_threaded_message_loop = true;
+	cSettings.single_process=true;
+
+	//CefMainArgs mainArgs;
+	CefMainArgs mainArgs(theApp.m_hInstance);
+
+	CefRefPtr<CefApp> spApp;
+
+	CefInitialize( mainArgs,cSettings, spApp);
+
 	CCEFDemoDlg dlg;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
@@ -92,3 +110,14 @@ BOOL CCEFDemoApp::InitInstance()
 	return FALSE;
 }
 
+
+
+int CCEFDemoApp::ExitInstance()
+{
+	// TODO: Add your specialized code here and/or call the base class
+
+
+	CefShutdown();
+
+	return CWinApp::ExitInstance();
+}
