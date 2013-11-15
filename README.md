@@ -1,4 +1,4 @@
 CEFJam
 ======
 
-Using Chromium Embedded Framework (CEF)  to learn and develop applications,currently aim at Windows.
+Using Chromium Embedded Framework (CEF)  3 to learn and develop applications,currently aim at Windows.
